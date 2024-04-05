@@ -30,7 +30,7 @@ ufs  = ["AC", "AL", "AP", "AM", "BA",
         "SE", "TO"]
 
 # Lista de datas que serão baixadas do site do Datasus.
-datas = ['2023-01-01']
+datas = ['2023-01-01', '2023-02-01']
 
 #for uf in ufs:
 #    get_data_uf(ufs, datas)
@@ -46,10 +46,12 @@ datas = ['2023-01-01']
 # Aqui iremos colocar o array que vai fazer a baixa dos arquivos em paralelo.
 
 to_download = [(uf,datas) for uf in ufs]
-to_download
 
+# Inserindo a função que vai fazer o processamento paralelo.
 
-# Python não abre o arquivo .dbc, iremos utilizar a seguinte forma para abrir os arquivos.
+with Pool(2) as pool:
+    pool.starmap(get_data_uf, to_download)
+
 
 # %%
 ## Criando um diretório para armazenamento dos dados e validando se o arquivo foi 
