@@ -3,8 +3,14 @@
 import urllib.request
 from tqdm import tqdm
 
+import sys
+
+sys.path.insert(0, f"P:/Python - Projetos/lib")
+
+import dttools
+
 # lib importada para fazer o processamento paralelo.
-from multiprocessing import Pool
+from multiprocessing import Pool 
 
 def get_data_uf_ano_mes(uf ,ano, mes):
     url = f"ftp://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/RD{uf}{ano}{mes}.dbc"
@@ -15,7 +21,6 @@ def get_data_uf_ano_mes(uf ,ano, mes):
 
 # Pega as datas e padroniza
 def get_data_uf(ufs, datas):
-    print(uf)
     for i in tqdm(datas):
         ano, mes, dia = i.split("-")
         ano = ano [-2:]
@@ -42,24 +47,26 @@ datas = ['2023-01-01', '2023-02-01']
 # 
 #with Pool(8) as pool:
 #    pool.starmap(get_data_uf,data)
-
-# Aqui iremos colocar o array que vai fazer a baixa dos arquivos em paralelo.
-
-to_download = [(uf,datas) for uf in ufs]
-
-# Inserindo a função que vai fazer o processamento paralelo.
-
-with Pool(2) as pool:
-    pool.starmap(get_data_uf, to_download)
-
-
-# %%
-## Criando um diretório para armazenamento dos dados e validando se o arquivo foi 
-## armazenado corretamente no local indicado
-
+#
 #import os
 #
 #os.listdir("P:/Python - Projetos/Datasus/rd/dbc/")
 #
 # Criar a pasta na pasta
 #os.mkdir("P:/Python - Projetos/Datasus/rd/dbc")
+
+
+
+
+# Aqui iremos colocar o array que vai fazer a baixa dos arquivos em paralelo.
+
+#to_download = [(uf,datas) for uf in ufs]
+
+# Inserindo a função que vai fazer o processamento paralelo.
+
+#with Pool(2) as pool:
+#    pool.starmap(get_data_uf, to_download)
+
+
+
+# %%
