@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 import sys
 
-sys.path.insert(0, f"P:/Python - Projetos/lib")
+sys.path.insert(0, f"P:/Python - Projetos/lib/")
 
 import dttools
 
@@ -24,7 +24,7 @@ def get_data_uf(ufs, datas):
     for i in tqdm(datas):
         ano, mes, dia = i.split("-")
         ano = ano [-2:]
-        get_data_uf_ano_mes(uf, ano, mes)
+        get_data_uf_ano_mes(ufs, ano, mes)
 
 # Lista de estados Brasileiros
 ufs  = ["AC", "AL", "AP", "AM", "BA", 
@@ -45,8 +45,9 @@ datas = ['2023-01-01', '2023-02-01']
 #         ("AP", ['2023-01-01', '2023-02-01']),
 #          ("DF", ['2023-01-01', '2023-02-01']), ]
 # 
-#with Pool(8) as pool:
-#    pool.starmap(get_data_uf,data)
+with Pool(8) as pool:
+    print(ufs)
+    pool.starmap(get_data_uf,datas)
 #
 #import os
 #
