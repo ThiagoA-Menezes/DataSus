@@ -37,17 +37,16 @@ ufs  = ["AC", "AL", "AP", "AM", "BA",
 # Lista de datas que serão baixadas do site do Datasus.
 datas = ['2023-01-01', '2023-02-01']
 
-#for uf in ufs:
-#    get_data_uf(ufs, datas)
-
-#data = [ ("AC", ['2023-01-01', '2023-02-01']),
-#         ("AM", ['2023-01-01', '2023-02-01']),
-#         ("AP", ['2023-01-01', '2023-02-01']),
-#          ("DF", ['2023-01-01', '2023-02-01']), ]
-# 
-with Pool(8) as pool:
-    print(ufs)
-    pool.starmap(get_data_uf,datas)
+for uf in ufs:
+    get_data_uf(ufs, datas)
+data = [ ("AC", ['2023-01-01', '2023-02-01']),
+         ("AM", ['2023-01-01', '2023-02-01']),
+         ("AP", ['2023-01-01', '2023-02-01']),
+          ("DF", ['2023-01-01', '2023-02-01']), ]
+ 
+#with Pool(8) as pool:
+#    print(ufs)
+#    pool.starmap(get_data_uf,datas)
 #
 #import os
 #
