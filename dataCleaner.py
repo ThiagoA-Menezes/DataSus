@@ -5,6 +5,7 @@ from tqdm import tqdm
 
 import sys
 
+
 sys.path.insert(0, f"P:/Python - Projetos/lib/")
 
 import dttools
