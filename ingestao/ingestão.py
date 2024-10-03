@@ -36,17 +36,17 @@ def get_data_uf(uf, datas):
         get_data_uf_ano_mes(uf, ano, mes)
     return(uf, datas)
 
-## Lista de estados Brasileiros
-#ufs  = ["AC", "AL", "AP", "AM", "BA", 
-#        "CE", "DF", "ES", "GO", "MA", 
-#        "MT", "MS", "MG", "PA", "PB", 
-#        "PR", "PE", "PI", "RJ", "RN", 
-#        "RS", "RO", "RR", "SC", "SP", 
-#        "SE", "TO"] 
-
+# Lista de estados Brasileiros
+ufs  = ["AC", "AL", "AP", "AM", "BA", 
+        "CE", "DF", "ES", "GO", "MA", 
+        "MT", "MS", "MG", "PA", "PB", 
+        "PR", "PE", "PI", "RJ", "RN", 
+        "RS", "RO", "RR", "SC", "SP", 
+        "SE", "TO"] 
+ 
 #datas = ['2023-01-01', '2023-02-01']
 
-ufs = ['PR']
+#ufs = ['PR']
 
 #vamos colocar um range de datas:
 dt_start = '2022-01-01'
